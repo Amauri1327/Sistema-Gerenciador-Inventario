@@ -2,10 +2,12 @@ package com.SGInventario.invetario.services;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.SGInventario.invetario.dto.ClientDto;
 import com.SGInventario.invetario.entities.Client;
 import com.SGInventario.invetario.repositories.ClientRepository;
 
@@ -16,8 +18,9 @@ public class ClientService implements Serializable{
 	@Autowired
 	private ClientRepository repo;
 
-	public List<Client> findAll() {
-		return repo.findAll();
+	public List<ClientDto> findAll() {
+		List<Client> entity = repo.findAll();
+		return entity.stream().map(ClientDto:: new).collect(Collectors.toList());
 	}
 
 	

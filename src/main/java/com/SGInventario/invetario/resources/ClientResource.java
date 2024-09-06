@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.SGInventario.invetario.entities.Client;
+import com.SGInventario.invetario.dto.ClientDto;
 import com.SGInventario.invetario.services.ClientService;
 
 @RestController
@@ -21,8 +21,8 @@ public class ClientResource implements Serializable{
 	private ClientService service;
 	
 	@GetMapping
-	public ResponseEntity<List<Client>> findAll(){
-		List<Client> list = service.findAll();
+	public ResponseEntity<List<ClientDto>> findAll(){
+		List<ClientDto> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 		
 	}
