@@ -6,11 +6,14 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.SGInventario.invetario.dto.SupplierDto;
 import com.SGInventario.invetario.entities.Supplier;
 import com.SGInventario.invetario.repositories.SupplierRepository;
+import com.SGInventario.invetario.services.exceptions.DatabaseException;
+import com.SGInventario.invetario.services.exceptions.ResourceNotFoundException;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -30,7 +33,7 @@ public class SupplierService implements Serializable{
 	@Transactional
 	public SupplierDto findById(Long id) {
 		Optional<Supplier> obj = repo.findById(id);
-		Supplier entity = obj.orElseThrow(() -> new RuntimeException("Id not found"));
+		Supplier entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity not found"));
 		return new SupplierDto(entity);
 	}
 
@@ -57,19 +60,22 @@ public class SupplierService implements Serializable{
 			return new SupplierDto(entity);
 		}
 		catch(EntityNotFoundException e) {
-			 throw new EntityNotFoundException("Id not found: " + id);
+			 throw new ResourceNotFoundException("Id not found: " + id);
 		}
 	}
 	
 	@Transactional
 	public void delete(Long id) {
-		try {
-			repo.deleteById(id);
-		}catch(EntityNotFoundException e) {
-			throw new EntityNotFoundException("Id not found: " + id);
-		}
+	    if (!repo.existsById(id)) {
+	        throw new ResourceNotFoundException("Id not found: " + id);
+	    }
+	    try {
+	        repo.deleteById(id);
+	    } catch (DataIntegrityViolationException e) {
+	        throw new DatabaseException("Integrity violation");
+	    }
 	}
-	
+
 	
 	
 }
