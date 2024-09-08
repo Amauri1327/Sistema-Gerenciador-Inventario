@@ -5,11 +5,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.SGInventario.invetario.dto.ProductDto;
 import com.SGInventario.invetario.entities.Product;
 import com.SGInventario.invetario.repositories.ProductRepository;
 
+@Service
 public class ProductService implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
