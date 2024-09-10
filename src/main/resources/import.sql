@@ -10,3 +10,10 @@ INSERT INTO tb_product (name, description, quantity, category, max_Stock, min_St
 INSERT INTO tb_product (name, description, quantity, category, max_Stock, min_Stock) VALUES ('iPhone 14', 'Smartphone Apple com câmera avançada', 5, 'Eletronicos', 15, 2);
 INSERT INTO tb_product (name, description, quantity, category, max_Stock, min_Stock) VALUES ('Dell XPS 13', 'Notebook ultrafino com tela infinita', 8, 'Computadores', 20, 3);
 INSERT INTO tb_product (name, description, quantity, category, max_Stock, min_Stock) VALUES ('Sony WH-1000XM4', 'Fone de ouvido com cancelamento de ruído', 12, 'Acessorios', 25, 5);
+
+
+INSERT INTO tb_client_product (client_id, product_id) VALUES (1 , 4)
+INSERT INTO tb_client_product (client_id, product_id) VALUES (2 , 1)
+INSERT INTO tb_client_product (client_id, product_id) VALUES (2 , 3)
+INSERT INTO tb_client_product (client_id, product_id) VALUES (2 , 2)
+INSERT INTO tb_client_product (client_id, product_id) VALUES (1 , 1)
