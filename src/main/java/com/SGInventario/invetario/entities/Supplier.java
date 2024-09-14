@@ -1,9 +1,13 @@
 package com.SGInventario.invetario.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,6 +29,10 @@ public class Supplier {
 	private String cnpj;
 	private String address;
 	private String phone;
+	
+	@OneToMany(mappedBy="supplier")
+	@Setter
+	private List<Product> products = new ArrayList<>();
 	
 }
 
