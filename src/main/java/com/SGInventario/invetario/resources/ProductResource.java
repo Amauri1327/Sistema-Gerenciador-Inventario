@@ -62,4 +62,25 @@ public class ProductResource implements Serializable{
 		return ResponseEntity.noContent().build();
 	}
 	
+	@GetMapping("/report")
+	public ResponseEntity<List<ProductDto>> generateProductReport(){
+		
+		List<ProductDto> products = service.generateProductReport();
+		
+		products.forEach(product -> {
+			System.out.println("Codigo: " + product.id() +
+					", Nome: " + product.name() +
+					", Descricao: " + product.description() +
+					", Preco: " + product.price() +
+					", Quantidade: " + product.quantity() +
+					", Categoria: " + product.category() +
+					", Estoque Maximo: " + product.maxStock() +
+					", Estoque Minimo: " + product.minStock() +
+					", Fornecedor: " + product.supplierName());
+		});
+		
+		return ResponseEntity.ok(products);
+	}
+	
+	
 }

@@ -35,6 +35,7 @@ public class Product implements Serializable{
 	private Long id;
 	private String name;
 	private String description;
+	private Double price;
 	private Integer quantity;
 	private String category;
 	private Integer maxStock;
@@ -47,5 +48,8 @@ public class Product implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="supplier_id")
 	private Supplier supplier;
-
+	
+	public String getSupplierName() {
+		return supplier.getName();
+	}
 }

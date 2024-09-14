@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
+import com.SGInventario.invetario.component.ProductRules;
 import com.SGInventario.invetario.dto.ProductDto;
 import com.SGInventario.invetario.entities.Product;
 import com.SGInventario.invetario.repositories.ProductRepository;
@@ -25,6 +26,9 @@ public class ProductService implements Serializable{
 	
 	@Autowired
 	private ProductRepository repo;
+	
+	@Autowired
+	private ProductRules rules;
 
 	public List<ProductDto> findAll(){
 		List<Product> entity = repo.findAll();
@@ -42,6 +46,7 @@ public class ProductService implements Serializable{
 		Product prod = new Product();
 		prod.setName(dto.name());
 		prod.setDescription(dto.description());
+		prod.setPrice(dto.price());
 		prod.setQuantity(dto.quantity());
 		prod.setCategory(dto.category());
 		prod.setMaxStock(dto.maxStock());
@@ -56,6 +61,7 @@ public class ProductService implements Serializable{
 			Product prod = repo.getReferenceById(id);
 			prod.setName(dto.name());
 			prod.setDescription(dto.description());
+			prod.setPrice(dto.price());
 			prod.setQuantity(dto.quantity());
 			prod.setCategory(dto.category());
 			prod.setMaxStock(dto.maxStock());
@@ -78,6 +84,11 @@ public class ProductService implements Serializable{
 	        throw new DatabaseException("Integrity violation");
 	    }
 	}
-
+	
+	public List<ProductDto> generateProductReport(){
+		List<Product> prod = repo.findAll();
+		return rules.generateProductReport(prod);
+		
+	}
 	
 }
