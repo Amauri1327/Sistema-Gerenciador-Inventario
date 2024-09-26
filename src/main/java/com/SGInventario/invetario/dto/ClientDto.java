@@ -8,6 +8,7 @@ public record ClientDto(
 		String cpf,
 		String address,
 		String phone
+		
 		) {
 	 public ClientDto(Client entity) {
 	       this(
@@ -17,7 +18,6 @@ public record ClientDto(
     		   entity.getAddress(),
     		   entity.getPhone()
     		   );
-	       
 	 }
 	
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.SGInventario.invetario.dto.ClientDto;
+import com.SGInventario.invetario.dto.ReportClientDto;
 import com.SGInventario.invetario.services.ClientService;
 
 @RestController
@@ -61,7 +62,11 @@ public class ClientResource implements Serializable{
 		return ResponseEntity.noContent().build();
 	}
 	
-	
+	@GetMapping("/report/{id}")
+	public ResponseEntity<ReportClientDto> generateClientReport(@PathVariable Long id){
+		ReportClientDto dto = service.generatedClientReport(id);
+		return ResponseEntity.ok(dto);
+	}
 	
 	
 }

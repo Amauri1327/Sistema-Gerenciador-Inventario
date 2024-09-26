@@ -87,8 +87,7 @@ public class ProductService implements Serializable{
 	
 	public List<ProductDto> generateProductReport(){
 		List<Product> prod = repo.findAll();
-		return rules.generateProductReport(prod);
-		
+		return rules.generateProductReport(prod);	
 	}
 	
 }
