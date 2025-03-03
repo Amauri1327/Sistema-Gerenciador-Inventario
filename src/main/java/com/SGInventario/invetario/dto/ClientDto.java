@@ -1,6 +1,6 @@
 package com.SGInventario.invetario.dto;
 
-import com.SGInventario.invetario.entities.Client;
+import com.SGInventario.invetario.core.models.Client;
 
 public record ClientDto(
 		Long id,

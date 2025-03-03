@@ -1,4 +1,4 @@
-package com.SGInventario.invetario.entities;
+package com.SGInventario.invetario.core.models;
 
 import java.io.Serializable;
 import java.util.HashSet;

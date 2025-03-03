@@ -1,6 +1,6 @@
 package com.SGInventario.invetario.dto;
 
-import com.SGInventario.invetario.entities.Supplier;
+import com.SGInventario.invetario.core.models.Supplier;
 
 public record SupplierDto(
 		Long id,

@@ -10,7 +10,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.SGInventario.invetario.dto.SupplierDto;
-import com.SGInventario.invetario.entities.Supplier;
+import com.SGInventario.invetario.core.models.Supplier;
 import com.SGInventario.invetario.repositories.SupplierRepository;
 import com.SGInventario.invetario.services.exceptions.DatabaseException;
 import com.SGInventario.invetario.services.exceptions.ResourceNotFoundException;

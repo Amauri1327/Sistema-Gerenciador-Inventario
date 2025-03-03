@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import com.SGInventario.invetario.component.ClientRules;
 import com.SGInventario.invetario.dto.ClientDto;
 import com.SGInventario.invetario.dto.ReportClientDto;
-import com.SGInventario.invetario.entities.Client;
+import com.SGInventario.invetario.core.models.Client;
 import com.SGInventario.invetario.repositories.ClientRepository;
 import com.SGInventario.invetario.services.exceptions.DatabaseException;
 import com.SGInventario.invetario.services.exceptions.ResourceNotFoundException;

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.SGInventario.invetario.dto.ProductSummaryDto;
 import com.SGInventario.invetario.dto.ReportClientDto;
-import com.SGInventario.invetario.entities.Client;
+import com.SGInventario.invetario.core.models.Client;
 
 @Component
 public class ClientRules {

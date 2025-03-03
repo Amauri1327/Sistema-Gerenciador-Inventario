@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 import com.SGInventario.invetario.dto.ProductDto;
-import com.SGInventario.invetario.entities.Product;
+import com.SGInventario.invetario.core.models.Product;
 
 @Component
 public class ProductRules {
